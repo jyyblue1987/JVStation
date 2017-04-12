@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      JVStation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding overflow-scroll="true">
+  	<!-- <ion-list [virtualScroll]="launches" approxItemHeight="45px">
+        <ion-item *virtualItem="let launch">            
+            <h2>{{launch.product}}</h2>
+            <p>{{launch.vendor}}</p>
+            <ion-note item-right class="note">{{launch.launchDate | date :"MMM dd"}}</ion-note>
+            <ion-icon name="star" item-right style="margin-right: 0px; font-size: 25px"></ion-icon>
+        </ion-item>
+    </ion-list> -->
+
+    <ion-list>
+        <ion-item *ngFor="let launch of launches">            
+            <h2>{{launch.product}}</h2>
+            <p>{{launch.vendor}}</p>
+            <ion-note item-right class="note">{{launch.launchDate | date :"MMM dd"}}</ion-note>
+            <ion-icon name="star" item-right style="margin-right: 0px; font-size: 25px"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+ 	</ion-infinite-scroll>
+</ion-content>
